@@ -1,0 +1,30 @@
+<% if current_user %>
+  <h1>User Profile</h1>
+  <p>
+    <strong>Name:</strong>
+    <%= current_user.name %>
+  </p>
+  <p>
+    <strong>Provider:</strong>
+    <%= current_user.provider %>
+  </p>
+  <p>
+    <strong>OmniAuth UID:</strong>
+    <%= current_user.uid %>
+  </p>
+  <p><%= link_to "Log out", logout_path %></p>
+<% else %>
+  <h1>Sign In</h1>
+
+  <p><strong>Sign in through one of these services:</strong></p>
+
+  <div class="auth_providers">
+  
+    <a href="/auth/facebook" class="auth_provider">
+      <%= image_tag "facebook_64.png", size: "64x64", alt: "Facebook" %>
+      Facebook
+    </a>
+  
+  </div>
+  
+<% end %>
