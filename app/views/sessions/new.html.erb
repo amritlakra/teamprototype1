@@ -12,6 +12,10 @@
     <strong>OmniAuth UID:</strong>
     <%= current_user.uid %>
   </p>
+  <p>
+	<strong>Token:</strong>
+    <%= fbtoken %>
+  </p>
   <p><%= link_to "Log out", logout_path %></p>
 <% else %>
   <h1>Sign In</h1>
@@ -22,7 +26,6 @@
   
     <a href="/auth/facebook" class="auth_provider">
       <%= image_tag "facebook_64.png", size: "64x64", alt: "Facebook" %>
-      Facebook
     </a>
   
   </div>
