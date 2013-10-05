@@ -6,7 +6,7 @@ end
 def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
-	session[:token]=env["omniauth.auth"]["credentials"]["token "]
+	session[:token]=(env["omniauth.auth"])["credentials"]["token "]
     redirect_to root_url, notice: "Signed in! by"+user.provider
 end
 
