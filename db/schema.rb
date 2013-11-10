@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131002150314) do
+ActiveRecord::Schema.define(version: 20131110165319) do
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20131002150314) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sectoken"
   end
 
 end
