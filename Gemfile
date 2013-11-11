@@ -33,3 +33,5 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-identity'
+#Facebook graph api calls
+gem 'koala', '~> 1.8.0rc1'
