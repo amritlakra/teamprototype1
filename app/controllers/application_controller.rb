@@ -9,5 +9,11 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
 	
   end
+
+  def fb_groups
+  	graph = Koala::Facebook::API.new(session[:fb_oauth_token])
+	@fb_groups = graph.get_connections("me", "groups")
+  end
   helper_method :current_user
+  helper_method :fb_groups
 end
