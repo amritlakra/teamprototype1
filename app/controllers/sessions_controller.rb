@@ -8,7 +8,7 @@ def create
     session[:user_id] = user.id
 	session[:fb_oauth_token]=user.sectoken
 	graph = Koala::Facebook::API.new(session[:fb_oauth_token])
-	@fb_groups = @graph.get_connections("me", "groups")
+	@fb_groups = graph.get_connections("me", "groups")
 	redirect_to root_url, notice: "Signed in! by"+user.provider
 end
 
