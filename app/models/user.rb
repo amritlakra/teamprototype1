@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
       user.name = auth.info.name
       user.sectoken = auth.credentials.token
       user.sectoken_expires_at = Time.at(auth.credentials.expires_at)
-      user.save!
+     # user.save!
     end
   end
 end
