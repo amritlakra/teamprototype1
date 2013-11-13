@@ -7,13 +7,13 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-	
-  end
+	end
 
   def fb_groups
-  	graph = Koala::Facebook::API.new(session[:fb_oauth_token])
-	@fb_groups = graph.get_connections("me", "groups")
+    graph = Koala::Facebook::API.new(session[:fb_oauth_token])
+	  @fb_groups = graph.get_connections("me", "groups")
   end
+  
   helper_method :current_user
   helper_method :fb_groups
 end
