@@ -16,14 +16,12 @@
     <%= fb_groups.inspect%>
     <ul>
       <% fb_groups.each do |fb_group| %>
-        <% if nil != fb_group %>
           <li>
             <strong>Group Name:</strong>
             <%=fb_group['name']%> 
             <strong>Group id:</strong>
             <%=fb_group['id']%>
           </li>
-        <% end %>
       <% end %>
     </ul>
   </p>
