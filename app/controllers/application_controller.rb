@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
   def fb_groups
     graph = Koala::Facebook::API.new(session[:fb_oauth_token])
 	  @fb_groups = graph.get_connections("me", "groups")
+
+    @pg_feed = []
+    @fb_groups.each do |data|
+      @pg_feed = graph.get_connections(data['id'], "feed")
+    end
+
   end
   
   helper_method :current_user
