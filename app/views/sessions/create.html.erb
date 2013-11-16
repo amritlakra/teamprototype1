@@ -25,6 +25,20 @@
     </ul>
   </p>
   <p><%=@pg_feeds.inspect%></p>
+   <p>
+    <ul>
+      <% @pg_feeds.each do |fb_group_feeds| %>
+          <li>
+            <strong>Posted By:</strong>
+            <%=fb_group_feeds['from']['name']%> 
+            <strong>in</strong>
+            <%=fb_group_feeds['to']['data'].fetch(0,'could not find group name')['name']%>
+            <strong>Post</strong>
+            <%=fb_group_feeds['message']%>
+          </li>
+      <% end %>
+    </ul>
+  </p>
   <p><%= link_to "Log out", logout_path %></p>
 <% else %>
 

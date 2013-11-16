@@ -15,7 +15,10 @@ def create
 		
 	@pg_feeds = []
     @fb_groups.each do |data|
-        @pg_feeds = (session[:fb_graph]).get_connections(data['id'], "feed")
+        pg_feed = (session[:fb_graph]).get_connections(data['id'], "feed")
+        if(nil!=pg_feed)
+        @pg_feeds.concat(pg_feed)	
+        end	
      end
 	
 end
