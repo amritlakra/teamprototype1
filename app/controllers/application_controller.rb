@@ -12,14 +12,16 @@ class ApplicationController < ActionController::Base
   def fb_groups
     @fb_groups = []
     if(nil !=session[:fb_graph])
-    @fb_groups = (session[:fb_graph]).get_connections("me", "groups")
+      @fb_groups = (session[:fb_graph]).get_connections("me", "groups")
+    end
   end
 
   def pg_feeds
     @pg_feeds = []
     if(nil !=session[:fb_graph])
-    @fb_groups.each do |data|
-      @pg_feeds = (session[:fb_graph]).get_connections(data['id'], "feed")
+      @fb_groups.each do |data|
+        @pg_feeds = (session[:fb_graph]).get_connections(data['id'], "feed")
+      end
     end
   end
   
