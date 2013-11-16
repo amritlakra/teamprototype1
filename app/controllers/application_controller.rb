@@ -9,23 +9,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
 	end
 
-  def fb_groups
-    @fb_groups = []
-    if(nil !=session[:fb_graph])
-      @fb_groups = (session[:fb_graph]).get_connections("me", "groups")
-    end
-  end
-
-  def pg_feeds
-    @pg_feeds = []
-    if(nil !=session[:fb_graph])
-      @fb_groups.each do |data|
-        @pg_feeds = (session[:fb_graph]).get_connections(data['id'], "feed")
-      end
-    end
-  end
-  
   helper_method :current_user
-  helper_method :fb_groups
-  helper_method :pg_feeds
+
 end
