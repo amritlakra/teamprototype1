@@ -4,20 +4,19 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   private
-  graph = Koala::Facebook::API.new(session[:fb_oauth_token])
-
+  
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
 	end
 
   def fb_groups
-    @fb_groups = graph.get_connections("me", "groups")
+    @fb_groups = session[:fb_graph].get_connections("me", "groups")
   end
 
   def pg_feeds
     @pg_feeds = []
     @fb_groups.each do |data|
-      @pg_feeds = graph.get_connections(data['id'], "feed")
+      @pg_feeds = session[:fb_graph].get_connections(data['id'], "feed")
     end
   end
   
