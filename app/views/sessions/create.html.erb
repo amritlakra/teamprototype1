@@ -14,7 +14,7 @@
   </p>.
   <p>
     <ul>
-      <% fb_groups.each do |fb_group| %>
+      <% @fb_groups.each do |fb_group| %>
           <li>
             <strong>Group Name:</strong>
             <%=fb_group['name']%> 
@@ -24,7 +24,6 @@
       <% end %>
     </ul>
   </p>
-  <p><%=pg_feed.inspect%></p>
   <p><%= link_to "Log out", logout_path %></p>
 <% else %>
 
