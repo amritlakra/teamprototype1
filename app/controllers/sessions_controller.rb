@@ -7,9 +7,12 @@ def create
     user = User.from_omniauth(env["omniauth.auth"])
     session[:user_id] = user.id
 	session[:fb_oauth_token]=user.sectoken
+
 	graph = Koala::Facebook::API.new(session[:fb_oauth_token])
 	session[:fb_graph] = graph
-	redirect_to root_url, notice: "Signed in! by"+user.provider
+
+	@fb_groups = (session[:fb_graph]).get_connections("me", "groups")
+		
 end
 
 def destroy

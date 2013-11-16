@@ -1,33 +1,4 @@
-<% if current_user %>
-  <h1>User Profile</h1>
-  <p>
-    <strong>Name:</strong>
-    <%= current_user.name %>
-  </p>
-  <p>
-    <strong>Provider:</strong>
-    <%= current_user.provider %>
-  </p>
-  <p>
-    <strong>FB UID:</strong>
-    <%= current_user.uid %>
-  </p>.
-  <p>
-    <ul>
-      <% fb_groups.each do |fb_group| %>
-          <li>
-            <strong>Group Name:</strong>
-            <%=fb_group['name']%> 
-            <strong>Group id:</strong>
-            <%=fb_group['id']%>
-          </li>
-      <% end %>
-    </ul>
-  </p>
-  <p><%=pg_feed.inspect%></p>
-  <p><%= link_to "Log out", logout_path %></p>
-<% else %>
-  <h1>Sign In</h1>
+<h1>Sign In</h1>
 
   <p><strong>Sign in through one of these services:</strong></p>
 
@@ -38,5 +9,4 @@
     </a>
   
   </div>
-  
-<% end %>
+
