@@ -14,26 +14,18 @@
   </p>.
   <p>
     <ul>
-      <% @fb_groups.each do |fb_group| %>
-          <li>
-            <strong>Group Name:</strong>
-            <%=fb_group['name']%> 
-            <strong>Group id:</strong>
-            <%=fb_group['id']%>
-          </li>
-      <% end %>
-    </ul>
-  </p>
-  <p>
-    <ul>
       <% @pg_feeds.each do |fb_group_feeds| %>
           <li>
             <strong>Posted By:</strong>
-            <%=fb_group_feeds['from']['name']%> 
+            <%=fb_group_feeds.postedBy%> 
             <strong>in</strong>
-            <%=fb_group_feeds['to']['data'].fetch(0,'could not find group name')['name']%>
+            <%=fb_group_feeds.groupName%>
             <strong>Post</strong>
-            <%=fb_group_feeds['message']%>
+            <%=fb_group_feeds.postMessage%>
+            <strong>Post Type</strong>
+            <%=fb_group_feeds.postType%>
+            <strong>Posted At</strong>
+            <%=fb_group_feeds.postedAt%>
           </li>
       <% end %>
     </ul>
